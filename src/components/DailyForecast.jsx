@@ -1,5 +1,9 @@
 export default function DailyForecast({ data }) {
-  if (!data) return null;
+ if (!data || !data.list || data.list.length === 0) return (
+    <div className="weather-view hourly">
+      <p>⚠️ Previsioni non disponibili</p>
+    </div>
+  );
 
   const dailyData = [];
   const days = new Set();

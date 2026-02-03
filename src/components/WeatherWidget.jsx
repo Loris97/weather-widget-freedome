@@ -15,8 +15,18 @@ export default function WeatherWidget({ location = 'Milan' }) {
     trackMouse: true
   });
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
+  if (loading) return (
+  <div className="weather-widget">
+    <p>🌤️ Caricamento dati meteo...</p>
+  </div>
+);
+
+if (error) return (
+  <div className="weather-widget">
+    <p>⚠️ Impossibile caricare i dati meteo</p>
+    <p style={{fontSize: '14px', color: '#999'}}>{error}</p>
+  </div>
+);
 
   const views = [
     <CurrentWeather data={current} />,

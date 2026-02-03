@@ -1,5 +1,10 @@
 export default function HourlyForecast({ data }) {
-  if (!data) return null;
+  if (!data || !data.list || data.list.length === 0) return (
+    <div className="weather-view hourly">
+      <p>⚠️ Previsioni non disponibili</p>
+    </div>
+  );
+
 
   // Salva le prossime 5 ore (API fornisce ogni 3 ore)
   const hourly = data.list.slice(0, 5);

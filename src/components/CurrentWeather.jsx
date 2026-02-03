@@ -1,5 +1,10 @@
 export default function CurrentWeather({ data }) {
-  if (!data) return null;
+  if (!data || !data.main) return (
+    <div className="weather-view current">
+      <p>⚠️ Dati meteo non disponibili</p>
+    </div>
+  );
+
 
   return (
     <div className="weather-view current">
