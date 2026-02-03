@@ -142,19 +142,20 @@ npm run build
 
 ## 🎯 Requisiti Challenge
 
-✅ Widget meteo con 3 viste distinte
-✅ Navigazione swipe funzionante
-✅ Integrazione con OpenWeather API
-✅ Design responsive che rispetta il mockup
-✅ Località passata come parametro (non selezionabile)
-✅ Codice organizzato e documentato
+✅ Widget meteo con 3 viste distinte  
+✅ Navigazione swipe funzionante  
+✅ Integrazione con OpenWeather API  
+✅ Design responsive che rispetta il mockup  
+✅ Località passata come parametro (non selezionabile)  
+✅ Codice organizzato e documentato  
 ✅ Repository pubblica su GitHub
 
 ## 👨💻 Autore
 
-Sviluppato da [**Loriss97**](https://github.com/Loris97) per la technical challenge di Freedome
+Sviluppato da [**Loriss97**](https://github.com/Lori) per la technical challenge di Freedome
 
 ---
 
 **Tempo di sviluppo:** ~2.5 ore
-**Repository:** [https://github.com/Loris97/weather-widget-freedome](https://github.com/Loris97/weather-widget-freedome.git)
+
+**Repository:** [https://github.com/Lori/weather-widget-freedome](https://github.com/Lori/weather-widget-freedome.git)
