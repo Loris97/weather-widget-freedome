@@ -1,70 +1,160 @@
-# Getting Started with Create React App
+# Weather Widget Challenge - Freedome
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Widget meteo interattivo con 3 viste navigabili tramite swipe, sviluppato per la technical challenge di Freedome.
 
-## Available Scripts
+## 🌟 Features
 
-In the project directory, you can run:
+- **3 viste interattive:**
+  - 🌡️ Meteo corrente con temperatura e condizioni in tempo reale
+  - ⏰ Previsioni per le prossime 5 ore (5 slot temporali)
+  - 📅 Previsioni per i prossimi 5 giorni
+- **Navigazione swipe** - Scorri tra le viste con gesture touch o mouse drag
+- **Dati in tempo reale** - Integrazione con OpenWeather API
+- **Design responsive** - Ottimizzato per desktop e mobile
+- **Error handling** - Gestione errori di rete e validazione dati
 
-### `npm start`
+## 🚀 Quick Start
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Prerequisiti
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Node.js 14+ e npm
+- API Key gratuita di OpenWeather ([ottienila qui](https://openweathermap.org/api))
 
-### `npm test`
+### Installazione
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+# Clona la repository
+git clone https://github.com/Loris97/weather-widget-freedome.git
+cd weather-widget-freedome
 
-### `npm run build`
+# Installa le dipendenze
+npm install
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Configura l'API key
+# Crea un file .env nella root del progetto e aggiungi:
+# REACT_APP_WEATHER_API_KEY=tua_api_key_qui
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Avvia l'applicazione
+npm start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+L'app sarà disponibile su [http://localhost:3000](http://localhost:3000)
 
-### `npm run eject`
+## 🔧 Configurazione
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### API Key
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Crea un file `.env` nella root del progetto:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```env
+REACT_APP_WEATHER_API_KEY=your_openweather_api_key_here
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Puoi usare il file `.env.example` come riferimento.
 
-## Learn More
+### Località
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Per cambiare la località, modifica `src/App.js`:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```javascript
+<WeatherWidget location="Milan,IT" />
+```
 
-### Code Splitting
+Formato supportato: `"Città,CodicePaese"` (es. `"Coimbra,PT"`, `"London,UK"`)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+**Nota:** Specificare il codice paese è consigliato per evitare ambiguità.
 
-### Analyzing the Bundle Size
+## 🛠️ Stack Tecnologico
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- **React 18** - UI library
+- **React Swipeable** - Gesture handling per navigazione swipe
+- **OpenWeather API 2.5** - Dati meteo in tempo reale
+- **CSS3** - Styling con gradient e animazioni
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 📁 Struttura del Progetto
 
-### Advanced Configuration
+```
+src/
+├── components/
+│   ├── WeatherWidget.jsx      # Componente principale con swipe navigation
+│   ├── CurrentWeather.jsx     # Vista meteo corrente
+│   ├── HourlyForecast.jsx     # Vista previsioni orarie (5 ore)
+│   └── DailyForecast.jsx      # Vista previsioni giornaliere (5 giorni)
+├── hooks/
+│   └── useWeatherData.js      # Custom hook per fetching dati API
+├── utils/
+│   └── api.js                 # Funzioni per chiamate API OpenWeather
+├── App.js                     # Entry point dell'app
+└── App.css                    # Styling globale
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+## 💡 Scelte Implementative
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### API OpenWeather 2.5
 
-### `npm run build` fails to minify
+Ho scelto la versione 2.5 dell'API (gratuita) invece della 3.0 perché:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Non richiede carta di credito
+- Endpoint `/weather` per dati meteo correnti
+- Endpoint `/forecast` per previsioni (dati ogni 3 ore, fino a 5 giorni)
+
+
+### Navigazione Swipe
+
+Implementata con `react-swipeable` per:
+
+- Supporto nativo touch e mouse drag (`trackMouse: true`)
+- Libreria leggera senza dipendenze pesanti
+- API semplice e configurabile
+
+
+### Previsioni Orarie
+
+L'API fornisce dati ogni 3 ore. La vista "Prossime ore" mostra 5 slot temporali (corrispondenti a circa 15 ore di previsioni).
+
+### Error Handling
+
+Ogni componente gestisce i casi di:
+
+- Dati API non disponibili o incompleti
+- Errori di connessione alla rete
+- Loading states con feedback visivo
+
+
+## 🧪 Test
+
+```bash
+# Avvia l'app in sviluppo
+npm start
+
+# Build di produzione
+npm run build
+```
+
+
+### Come testare
+
+1. **Swipe navigation:** Clicca e trascina orizzontalmente con il mouse (o usa gesture touch su mobile)
+2. **Indicatori:** I dots in basso mostrano quale vista stai visualizzando (1/3)
+3. **Dati in tempo reale:** Verifica che temperatura e condizioni meteo siano aggiornate
+
+## 🎯 Requisiti Challenge
+
+✅ Widget meteo con 3 viste distinte
+✅ Navigazione swipe funzionante
+✅ Integrazione con OpenWeather API
+✅ Design responsive che rispetta il mockup
+✅ Località passata come parametro (non selezionabile)
+✅ Codice organizzato e documentato
+✅ Repository pubblica su GitHub
+
+## 👨💻 Autore
+
+Sviluppato da [**Loriss97**](https://github.com/Loris97) per la technical challenge di Freedome
+
+---
+
+**Tempo di sviluppo:** ~2.5 ore
+**Repository:** [https://github.com/Loris97/weather-widget-freedome](https://github.com/Loris97/weather-widget-freedome.git)
