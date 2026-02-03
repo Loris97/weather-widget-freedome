@@ -1,7 +1,7 @@
 export default function HourlyForecast({ data }) {
   if (!data) return null;
 
-  // Prendi le prossime 5 ore (ogni 3 ore dall'API)
+  // Salva le prossime 5 ore (API fornisce ogni 3 ore)
   const hourly = data.list.slice(0, 5);
 
   return (

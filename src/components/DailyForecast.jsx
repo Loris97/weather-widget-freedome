@@ -1,7 +1,6 @@
 export default function DailyForecast({ data }) {
   if (!data) return null;
 
-  // Raggruppa per giorno (prendi una previsione per giorno)
   const dailyData = [];
   const days = new Set();
   

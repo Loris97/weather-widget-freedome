@@ -1,38 +1,140 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
   min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  padding: 20px;
+}
+
+.weather-widget {
+  background: white;
+  border-radius: 24px;
+  padding: 40px 30px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  min-width: 320px;
+  max-width: 400px;
+  min-height: 400px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  cursor: grab;
+  user-select: none;
+}
+
+.weather-widget:active {
+  cursor: grabbing;
+}
+
+/* Current Weather */
+.weather-view.current {
+  text-align: center;
+  flex: 1;
+}
+
+.temperature {
+  font-size: 72px;
+  font-weight: 300;
+  color: #333;
+  margin: 20px 0 10px;
+}
+
+.location {
+  font-size: 16px;
+  color: #999;
+  margin-bottom: 20px;
+}
+
+.icon img {
+  width: 120px;
+  height: 120px;
+}
+
+.description {
+  font-size: 18px;
+  color: #666;
+  text-transform: capitalize;
+  margin-top: 10px;
+}
+
+/* Hourly & Daily Forecast */
+.weather-view.hourly,
+.weather-view.daily {
+  flex: 1;
+}
+
+.weather-view h2 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.forecast-list {
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+}
+
+.forecast-item {
+  text-align: center;
+  flex: 1;
+  padding: 15px 5px;
+  background: #f8f9fa;
+  border-radius: 12px;
+}
+
+.forecast-item img {
+  width: 50px;
+  height: 50px;
+  margin: 5px 0;
+}
+
+.time, .day {
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.temp {
+  font-size: 18px;
+  color: #333;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+/* Dots indicator */
+.dots {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 8px;
+  margin-top: 30px;
 }
 
-.App-link {
-  color: #61dafb;
+.dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ddd;
+  transition: all 0.3s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.dots span.active {
+  background: #667eea;
+  width: 24px;
+  border-radius: 4px;
+}
+
+/* Loading & Error */
+.weather-widget > div {
+  text-align: center;
+  color: #666;
+  padding: 40px 0;
 }

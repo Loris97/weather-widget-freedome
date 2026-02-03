@@ -4,7 +4,7 @@ import WeatherWidget from './components/WeatherWidget';
 function App() {
   return (
     <div className="App">
-      <WeatherWidget location="Coimbra,PT" />
+      <WeatherWidget location="Malaga,ES" />
     </div>
   );
 }
