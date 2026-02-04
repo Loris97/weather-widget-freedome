@@ -158,4 +158,4 @@ Sviluppato da [**Loriss97**](https://github.com/Loris97) per la technical challe
 
 **Tempo di sviluppo:** ~2.5 ore
 
-**Repository:** [https://github.com/Loris97/weather-widget-freedome](https://github.com/Lori/weather-widget-freedome.git)
+**Repository:** [https://github.com/Loris97/weather-widget-freedome](https://github.com/Loris97/weather-widget-freedome.git)
